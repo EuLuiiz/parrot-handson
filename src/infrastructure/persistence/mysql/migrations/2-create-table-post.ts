@@ -12,13 +12,13 @@ export default {
             },
             user_id: {
                 type: Sequelize.DataTypes.INTEGER,
-                references: { 
+                references: {
                     model: {
                         tableName: 'users'
                     },
                     key: 'idUser',
-                    },
                 },
+            },
             createdAt: Sequelize.DataTypes.DATE,
             updatedAt: Sequelize.DataTypes.DATE
 

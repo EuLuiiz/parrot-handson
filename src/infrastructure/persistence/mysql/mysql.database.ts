@@ -12,7 +12,7 @@ export class MysqlDatabase implements IDatabaseModel {
     private _port: number;
     private _adapter: Sequelize.Sequelize;
 
-    private constructor(){
+    private constructor() {
         this._db = databaseConfig.database!;
         this._username = databaseConfig.username!;
         this._password = databaseConfig.password!;
@@ -56,10 +56,10 @@ export class MysqlDatabase implements IDatabaseModel {
         return (result > 0);
     }
 
-    read(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, dataId: number, includes: object): any {
-        try{
+    listID(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, dataId: number, includes: object): any {
+        try {
             return model.findByPk(dataId, includes);
-        } catch(err){
+        } catch (err) {
             throw new Error((err as Error).message);
         }
     }

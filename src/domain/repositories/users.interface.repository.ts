@@ -1,6 +1,6 @@
 import { IUserEntity } from "../entities/users/user.entity";
 
-export default interface IUserRepository {
+export default interface IUsersRepository {
     create(data: IUserEntity): Promise<IUserEntity>,
     list(): Promise<IUserEntity[]>,
     listID(id: number): Promise<IUserEntity | undefined>,
