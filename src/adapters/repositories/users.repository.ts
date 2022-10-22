@@ -47,10 +47,9 @@ export class UsersRepository implements IUsersRepository {
 
     async update(data: IUserEntity): Promise<IUserEntity | undefined> {
         try {
-            const user = await this._database.update(this._modelUsers, data, {
-                where: data.iduser
-            });
-            return user;
+            const user = await this._database.listID(this._modelUsers, data.iduser!)
+            const userAtt = await this._database.update(user,data)
+            return data;
         } catch (error) {
             throw new Error((error as Error).message);
         }
