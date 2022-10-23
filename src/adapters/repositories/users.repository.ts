@@ -47,8 +47,13 @@ export class UsersRepository implements IUsersRepository {
 
     async update(data: IUserEntity): Promise<IUserEntity | undefined> {
         try {
+            console.log('1')
+            console.log(data.iduser)
             const user = await this._database.listID(this._modelUsers, data.iduser!)
+            console.log('2')
+            console.log(user)
             const userAtt = await this._database.update(user,data)
+            console.log('3')
             return data;
         } catch (error) {
             throw new Error((error as Error).message);
