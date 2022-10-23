@@ -9,6 +9,7 @@ import debug from 'debug';
 
 //Routes
 import { CommonRoutesConfig } from '../../../adapters/apis/routes/common.routes.config';
+import { UsersRoutes } from '../../../adapters/apis/routes/users.routes.config';
 
 // Configs
 const app: express.Application = express();
@@ -38,7 +39,7 @@ if (!process.env.DEBUG) {
 app.use(expressWinston.logger(logOptions));
 
 // Routes
-//routes.push(new UserRoutes());
+routes.push(new UsersRoutes(app));
 
 // Test
 const mensage = `Server [OK]: Running port[${port}]`
