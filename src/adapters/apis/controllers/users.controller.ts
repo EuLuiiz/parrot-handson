@@ -38,3 +38,5 @@ class UsersControllers {
         response.status(204).send();
     }
 }
+
+export default new UsersControllers();
