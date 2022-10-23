@@ -5,6 +5,7 @@ import { IDatabaseModel } from "../../infrastructure/persistence/databasemodel.i
 import postModel from '../../infrastructure/persistence/mysql/models/post.model';
 import userModel from '../../infrastructure/persistence/mysql/models/user.model';
 import { MysqlDatabase } from '../../infrastructure/persistence/mysql/mysql.database';
+import cryptoPassUsers from '../helpers/crypto.pass.users';
 
 export class UsersRepository implements IUsersRepository {
     constructor(
@@ -20,6 +21,7 @@ export class UsersRepository implements IUsersRepository {
 
     async create(data: IUserEntity): Promise<IUserEntity> {
         try {
+            data.password = cryptoPassUsers(data.password);
             const newUser = await this._database.create(this._modelUsers, data);
             return data;
         } catch (error) {
@@ -46,14 +48,9 @@ export class UsersRepository implements IUsersRepository {
     }
 
     async update(data: IUserEntity): Promise<IUserEntity | undefined> {
-        try {
-            console.log('1')
-            console.log(data.iduser)
+        try{
             const user = await this._database.listID(this._modelUsers, data.iduser!)
-            console.log('2')
-            console.log(user)
             const userAtt = await this._database.update(user,data)
-            console.log('3')
             return data;
         } catch (error) {
             throw new Error((error as Error).message);
