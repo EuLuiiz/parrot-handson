@@ -49,6 +49,7 @@ export class UsersRepository implements IUsersRepository {
 
     async update(data: IUserEntity): Promise<IUserEntity | undefined> {
         try{
+            data.password = cryptoPassUsers(data.password);
             const user = await this._database.listID(this._modelUsers, data.iduser!)
             const userAtt = await this._database.update(user,data)
             return data;
