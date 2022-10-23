@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node --unhandled-rejections=strict -r dotenv/config ./dist/infrastructure/apis/app/app.js",
-    "debug": "set DEBUG=* && npm run start"
+    "simple": "tsc && node --unhandled-rejections=strict -r dotenv/config ./dist/infrastructure/apis/app/app.js",
+    "debug": "set DEBUG=* && npm run simple",
+    "mocks": "tsc && node ./dist/infrastructure/persistence/mocks/mocks.js",
+    "start": "tsc & npx sequelize db:create & npx sequelize db:migrate & npm run mocks"
   },
   "author": "Tiago e Victor",
   "license": "ISC",

@@ -11,7 +11,6 @@ export default {
             },
             name: Sequelize.DataTypes.STRING,
             password: Sequelize.DataTypes.STRING(120),
-            admin: Sequelize.DataTypes.INTEGER,
             email: Sequelize.DataTypes.STRING,
             apartment: Sequelize.DataTypes.INTEGER,
             createdAt: Sequelize.DataTypes.DATE,

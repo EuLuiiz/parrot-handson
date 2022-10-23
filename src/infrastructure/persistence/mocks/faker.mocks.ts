@@ -5,7 +5,7 @@ import { faker } from '@faker-js/faker';
 export default class fakerMocks implements IMocks {
     getUsers(): IUserEntity[] {
         const users: IUserEntity[] = [];
-        Array.from({length:15}).forEach(()=>{
+        Array.from({length:20}).forEach(()=>{
             users.push({
                 name: faker.name.fullName(),
                 email: faker.internet.email(),
@@ -13,6 +13,7 @@ export default class fakerMocks implements IMocks {
                 password: faker.internet.password()
             })
         })
+        console.log(users)
         return users;
     }
 }
