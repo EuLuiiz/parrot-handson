@@ -6,8 +6,8 @@ import usersRepository from "../../../adapters/repositories/users.repository";
 export class ListIDUsersUseCase implements IUseCase {
     constructor(private _repository: IUsersRepository) {
     }
-    async execute(data: { id: number }): Promise<IUserEntity | undefined> {
-        return await this._repository.listID(data.id);
+    async execute(data: { iduser: number }): Promise<IUserEntity | undefined> {
+        return await this._repository.listID(data.iduser);
     }
 }
 
