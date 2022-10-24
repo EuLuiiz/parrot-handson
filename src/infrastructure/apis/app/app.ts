@@ -11,6 +11,7 @@ import debug from 'debug';
 import { CommonRoutesConfig } from '../../../adapters/apis/routes/common.routes.config';
 import { UsersRoutes } from '../../../adapters/apis/routes/users.routes.config';
 import { loginRoutes } from '../../../adapters/apis/routes/login.routes.config';
+import constantsConfig from '../../config/constants/constants.config';
 
 // Configs
 const app: express.Application = express();
@@ -44,14 +45,13 @@ routes.push(new UsersRoutes(app));
 routes.push(new loginRoutes(app));
 
 // Test
-const mensage = `Server [OK]: Running port[${port}]`
 app.get('/', (request: express.Request, response: express.Response) => {
-    response.status(200).send(mensage);
+    response.status(200).send(constantsConfig.APP.MESSAGES.DEBUG.APLICATION_STATUS);
 });
 
 // Listen
 server.listen(port,()=>{
     routes.forEach((route:CommonRoutesConfig)=>{
-        debugLog(`Config: [${route.getName}]`)
+        debugLog(`Config: ${route.getName}`)
     })
 });

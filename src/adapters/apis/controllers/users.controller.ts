@@ -5,8 +5,9 @@ import listUsersUsecase from '../../../domain/usecases/users/list.users.usecase'
 import listIDUsersUsecase from '../../../domain/usecases/users/listID.users.usecase';
 import updateUsersUsecase from '../../../domain/usecases/users/update.users.usecase';
 import deleteUsersUsecase from '../../../domain/usecases/users/delete.users.usecase';
+import constantsConfig from '../../../infrastructure/config/constants/constants.config';
 
-const log: debug.IDebugger = debug('app:Users-Controller');
+const log: debug.IDebugger = debug(constantsConfig.APP.MESSAGES.DEBUG.USERS_CONTROLLER);
 
 class UsersControllers {
     async create(request: express.Request, response: express.Response) {

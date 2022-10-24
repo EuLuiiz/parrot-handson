@@ -1,27 +1,27 @@
 import * as Sequelize from 'sequelize';
+import sequelize from 'sequelize';
 
 export default {
     up: (queryInterface: Sequelize.QueryInterface) => {
         return queryInterface.createTable('posts', {
-            Id: {
+            idpost: {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
-                field: 'idPost',
                 autoIncrement: true,
                 allowNull: false
             },
+            content: Sequelize.DataTypes.TEXT,
+            createdAt: Sequelize.DataTypes.DATE,
+            updatedAt: Sequelize.DataTypes.DATE,
             user_id: {
                 type: Sequelize.DataTypes.INTEGER,
                 references: {
                     model: {
                         tableName: 'users'
                     },
-                    key: 'idUser',
+                    key: 'iduser',
                 },
-            },
-            createdAt: Sequelize.DataTypes.DATE,
-            updatedAt: Sequelize.DataTypes.DATE
-
+            }
         });
     },
     down: (queryInterface: Sequelize.QueryInterface) => {

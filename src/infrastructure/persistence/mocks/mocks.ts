@@ -1,4 +1,3 @@
-import { result } from "lodash";
 import { IUserEntity } from "../../../domain/entities/users/user.entity";
 import createUsersUsecase from "../../../domain/usecases/users/create.users.usecase";
 import FakerMocks from "./faker.mocks";

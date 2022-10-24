@@ -2,15 +2,16 @@ import express from 'express';
 import debug from 'debug';
 import listIDUsersUsecase from '../../../domain/usecases/users/listID.users.usecase';
 import listUsersUsecase from '../../../domain/usecases/users/list.users.usecase';
+import constantsConfig from '../../../infrastructure/config/constants/constants.config';
 
-const log: debug.IDebugger = debug('app: Users-Middeware');
+const log: debug.IDebugger = debug(constantsConfig.APP.MESSAGES.DEBUG.USERS_MIDDLEWARE);
 
 class UsersMiddlewares {
     async requeridedUserBodyFields(request: express.Request, response: express.Response, next: express.NextFunction) {
         if (request.body.name && request.body.email && request.body.apartment && request.body.password) {
             next()
         } else {
-            response.status(400).send('Todos os campos são obrigatórios!');
+            response.status(400).send(constantsConfig.USERS.MESSAGES.ERROR.BODY_MISSING_FIELDS);
         }
     }
 
@@ -20,7 +21,7 @@ class UsersMiddlewares {
         if (!repeat) {
             next()
         } else {
-            response.status(404).send('E-mail já cadastrado no sistema.')
+            response.status(404).send(constantsConfig.USERS.MESSAGES.ERROR.EMAIL_REPEAT)
         }
     }
 
@@ -31,7 +32,7 @@ class UsersMiddlewares {
         if (user) {
             next()
         } else {
-            response.status(404).send('Não foi encontrado nenhum usuário com o ID informado.');
+            response.status(404).send(constantsConfig.USERS.MESSAGES.ERROR.USER_NOT_EXIST);
         }
     }
 }
