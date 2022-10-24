@@ -1,6 +1,6 @@
 import express from 'express';
 import debug from 'debug';
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
 import listUsersUsecase from '../../../domain/usecases/users/list.users.usecase';
 
 const log: debug.IDebugger = debug('app: Login-Middeware');
