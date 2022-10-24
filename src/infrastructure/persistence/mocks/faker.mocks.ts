@@ -5,15 +5,19 @@ import { faker } from '@faker-js/faker';
 export default class fakerMocks implements IMocks {
     getUsers(): IUserEntity[] {
         const users: IUserEntity[] = [];
-        Array.from({length:20}).forEach(()=>{
+        let nameG, emailG, apartmentG, passwordG;
+        Array.from({ length: 20 }).forEach(() => {
+            nameG = faker.name.fullName();
+            emailG = faker.helpers.unique(faker.internet.email, [nameG]).toLocaleLowerCase();
+            apartmentG = Number(faker.random.numeric(2));
+            passwordG = `admin${apartmentG}`
             users.push({
-                name: faker.name.fullName(),
-                email: faker.internet.email(),
-                apartment: Number(faker.random.numeric(2)),
-                password: faker.internet.password()
+                name: nameG,
+                email: emailG,
+                apartment: apartmentG,
+                password: passwordG
             })
         })
-        console.log(users)
         return users;
     }
 }
