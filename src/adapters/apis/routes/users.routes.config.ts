@@ -2,7 +2,6 @@ import { CommonRoutesConfig } from "./common.routes.config";
 import usersController from "../controllers/users.controller";
 import usersMiddleware from "../middlewares/users.middleware";
 import express from 'express';
-import authMiddleware from "../middlewares/auth.middleware";
 
 export class UsersRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
@@ -11,9 +10,7 @@ export class UsersRoutes extends CommonRoutesConfig {
 
     configureRoutes(): express.Application {
         this.app.route('/users')
-            .get(
-                authMiddleware,
-                usersController.list)
+            .get(usersController.list)
             .post(
                 usersMiddleware.requeridedUserBodyFields,
                 usersMiddleware.validateUserRepeat,
