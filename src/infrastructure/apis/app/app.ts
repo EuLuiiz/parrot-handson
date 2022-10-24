@@ -52,6 +52,6 @@ app.get('/', (request: express.Request, response: express.Response) => {
 // Listen
 server.listen(port,()=>{
     routes.forEach((route:CommonRoutesConfig)=>{
-        debugLog(`Config: ${route.getName}`)
+        debugLog(`Config: ${route.getName()}`)
     })
 });
