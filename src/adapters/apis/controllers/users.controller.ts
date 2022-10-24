@@ -6,7 +6,7 @@ import listIDUsersUsecase from '../../../domain/usecases/users/listID.users.usec
 import updateUsersUsecase from '../../../domain/usecases/users/update.users.usecase';
 import deleteUsersUsecase from '../../../domain/usecases/users/delete.users.usecase';
 
-const log: debug.IDebugger = debug('app:Users-controller');
+const log: debug.IDebugger = debug('app:Users-Controller');
 
 class UsersControllers {
     async create(request: express.Request, response: express.Response) {

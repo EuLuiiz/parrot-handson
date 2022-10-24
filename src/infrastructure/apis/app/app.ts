@@ -10,6 +10,7 @@ import debug from 'debug';
 //Routes
 import { CommonRoutesConfig } from '../../../adapters/apis/routes/common.routes.config';
 import { UsersRoutes } from '../../../adapters/apis/routes/users.routes.config';
+import { loginRoutes } from '../../../adapters/apis/routes/login.routes.config';
 
 // Configs
 const app: express.Application = express();
@@ -40,6 +41,7 @@ app.use(expressWinston.logger(logOptions));
 
 // Routes
 routes.push(new UsersRoutes(app));
+routes.push(new loginRoutes(app));
 
 // Test
 const mensage = `Server [OK]: Running port[${port}]`

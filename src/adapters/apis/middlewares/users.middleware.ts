@@ -15,7 +15,6 @@ class UsersMiddlewares {
     }
 
     async validateUserRepeat(request: express.Request, response: express.Response, next: express.NextFunction) {
-        //Verificar se já existe conta baseado no email
         const users = await listUsersUsecase.execute();
         const repeat = users?.find(user=>user.email === request.body.email);
         if(!repeat){
