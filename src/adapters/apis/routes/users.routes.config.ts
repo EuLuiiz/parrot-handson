@@ -13,7 +13,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             .get(usersController.list)
             .post(
                 usersMiddleware.requeridedUserBodyFields,
-                usersMiddleware.validateUserRepeat,
+                usersMiddleware.validateEmailRepeat,
                 usersController.create)
 
         this.app.route('/users/:userID')
