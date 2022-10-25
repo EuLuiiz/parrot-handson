@@ -3,7 +3,7 @@ import loginController from "../controllers/login.controller";
 import loginMiddleware from "../middlewares/login.middleware";
 import express from 'express';
 
-export class loginRoutes extends CommonRoutesConfig {
+export class LoginRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
         super(app, 'LoginRoutes');
     }

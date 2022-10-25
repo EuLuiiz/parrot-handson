@@ -7,13 +7,13 @@ import * as expressWinston from 'express-winston';
 import cors from 'cors';
 import debug from 'debug';
 
+import constantsConfig from '../../config/constants/constants.config';
+
 //Routes
 import { CommonRoutesConfig } from '../../../adapters/apis/routes/common.routes.config';
 import { UsersRoutes } from '../../../adapters/apis/routes/users.routes.config';
-import { loginRoutes } from '../../../adapters/apis/routes/login.routes.config';
-import constantsConfig from '../../config/constants/constants.config';
-import { PostsRoutes } from '../../adapters/apis/routes/posts.routes.config';
-
+import { LoginRoutes } from '../../../adapters/apis/routes/login.routes.config';
+import { PostsRoutes } from '../../../adapters/apis/routes/posts.routes.config';
 
 // Configs
 const app: express.Application = express();
@@ -44,7 +44,8 @@ app.use(expressWinston.logger(logOptions));
 
 // Routes
 routes.push(new UsersRoutes(app));
-routes.push(new loginRoutes(app));
+routes.push(new LoginRoutes(app));
+routes.push(new PostsRoutes(app));
 
 // Test
 app.get('/', (request: express.Request, response: express.Response) => {
@@ -52,8 +53,8 @@ app.get('/', (request: express.Request, response: express.Response) => {
 });
 
 // Listen
-server.listen(port,()=>{
-    routes.forEach((route:CommonRoutesConfig)=>{
+server.listen(port, () => {
+    routes.forEach((route: CommonRoutesConfig) => {
         debugLog(`Config: ${route.getName()}`)
     })
 });

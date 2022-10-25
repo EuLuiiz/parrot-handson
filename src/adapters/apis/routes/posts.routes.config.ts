@@ -3,7 +3,7 @@ import { CommonRoutesConfig } from "./common.routes.config";
 // postsMiddleware
 import express from 'express';
 
-export class UsersRoutes extends CommonRoutesConfig {
+export class PostsRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
         super(app, 'PostsRoutes');
     }
