@@ -23,7 +23,7 @@ export class UsersRepository implements IUsersRepository {
         try {
             data.password = cryptoPassUsers(data.password);
             const newUser = await this._database.create(this._modelUsers, data);
-            return data;
+            return newUser;
         } catch (error) {
             throw new Error((error as Error).message);
         }
@@ -48,11 +48,11 @@ export class UsersRepository implements IUsersRepository {
     }
 
     async update(data: IUserEntity): Promise<IUserEntity | undefined> {
-        try{
+        try {
             data.password = cryptoPassUsers(data.password);
             const user = await this._database.listID(this._modelUsers, data.iduser!)
-            const userAtt = await this._database.update(user,data)
-            return data;
+            const userAtt = await this._database.update(user, data)
+            return userAtt;
         } catch (error) {
             throw new Error((error as Error).message);
         }
@@ -61,6 +61,7 @@ export class UsersRepository implements IUsersRepository {
     async delete(id: number): Promise<void> {
         try {
             const user = await this._database.delete(this._modelUsers, { iduser: id });
+            return
         } catch (error) {
             throw new Error((error as Error).message);
         }

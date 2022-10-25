@@ -8,7 +8,7 @@ const log: debug.IDebugger = debug(constantsConfig.APP.MESSAGES.DEBUG.USERS_MIDD
 
 class UsersMiddlewares {
     async requeridedUserBodyFields(request: express.Request, response: express.Response, next: express.NextFunction) {
-        if (request.body.name && request.body.email && request.body.apartment && request.body.password) {
+        if (request.body.name && request.body.email && request.body.apartment && request.body.password && request.body.imagelink) {
             next()
         } else {
             response.status(400).send(constantsConfig.USERS.MESSAGES.ERROR.BODY_MISSING_FIELDS);
