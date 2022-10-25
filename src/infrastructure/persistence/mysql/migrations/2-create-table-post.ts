@@ -7,9 +7,7 @@ export default {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
-                allowNull: false,
-                field: 'idpost'
-
+                allowNull: false
             },
             content: Sequelize.DataTypes.TEXT,
             createdAt: Sequelize.DataTypes.DATE,
