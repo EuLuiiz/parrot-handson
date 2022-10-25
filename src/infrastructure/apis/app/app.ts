@@ -12,6 +12,8 @@ import { CommonRoutesConfig } from '../../../adapters/apis/routes/common.routes.
 import { UsersRoutes } from '../../../adapters/apis/routes/users.routes.config';
 import { loginRoutes } from '../../../adapters/apis/routes/login.routes.config';
 import constantsConfig from '../../config/constants/constants.config';
+import { PostsRoutes } from '../../adapters/apis/routes/posts.routes.config';
+
 
 // Configs
 const app: express.Application = express();

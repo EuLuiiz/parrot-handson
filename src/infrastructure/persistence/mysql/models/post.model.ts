@@ -6,7 +6,20 @@ export default MysqlDatabase.getInstance().createModel('posts', {
         type: Sequelize.DataTypes.INTEGER,
         primaryKey: true,
     },
-    content: Sequelize.DataTypes.STRING,
-    createdAt: Sequelize.DataTypes.DATE,
-    updatedAt: Sequelize.DataTypes.DATE,
+    iduser: {
+        type: Sequelize.DataTypes.INTEGER,
+        field: 'iduser'
+    },
+   contentText:{
+   type:  Sequelize.DataTypes.STRING,
+   field: 'content_text'
+    } ,
+   createdAt: {
+    type: Sequelize.DataTypes.DATE,
+    field: 'createdAt'
+    },
+    updatedAt: {
+    type: Sequelize.DataTypes.DATE,
+    field: 'updatedAt'
+    }
 });

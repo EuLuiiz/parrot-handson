@@ -1,5 +1,4 @@
 import * as Sequelize from 'sequelize';
-import sequelize from 'sequelize';
 
 export default {
     up: (queryInterface: Sequelize.QueryInterface) => {
@@ -8,7 +7,9 @@ export default {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
-                allowNull: false
+                allowNull: false,
+                field: 'idpost'
+
             },
             content: Sequelize.DataTypes.TEXT,
             createdAt: Sequelize.DataTypes.DATE,
