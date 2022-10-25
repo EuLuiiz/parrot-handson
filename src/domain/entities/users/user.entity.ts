@@ -4,4 +4,5 @@ export interface IUserEntity {
     email: string,
     apartment: number,
     password: string,
+    imagelink: string
 }
