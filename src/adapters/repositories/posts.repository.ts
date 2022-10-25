@@ -1,44 +1,41 @@
 import * as Sequelize from "sequelize";
-
 import { IDatabaseModel } from "../../infrastructure/persistence/databasemodel.interface";
 import { IPostsEntity } from "../../domain/entities//posts/posts.entity";
 import { MysqlDatabase } from "../../infrastructure/persistence/mysql/mysql.database";
-import { IPostsRepository } from "../../domain/repositories/posts.interface.repository";
-
+import IPostsRepository from "../../domain/repositories/posts.interface.repository";
 import postsModel from "../../infrastructure/persistence/mysql/models/post.model";
-import entityToModelPost from "../../infrastructure/persistence/mysql/helpers/posts/entityToModel.post.mysql";
-import modelToEntityPostMysql from "../../infrastructure/persistence/mysql/helpers/posts/modelToEntity.post.mysql";
 import * as sequelize from "sequelize";
-import entityToModelPostMysql from "../../infrastructure/persistence/mysql/helpers/posts/entityToModel.post.mysql";
 
 export class PostsRepositories implements IPostsRepository {
-
-    constructor(
-    private _database:IDatabaseModel,
+  constructor(
+    private _database: IDatabaseModel,
     private _postModel: sequelize.ModelCtor<sequelize.Model<any, any>>
-    ){}
-    
-    async create(resource: IPostsEntity): Promise<IPostsEntity> {
-        const {Post} = entityToModelPost(resource);
-        const postsModel = await this._database.create(this._postModel, Post)
+  ) { }
 
-        return resource
-    } 
-    
-    async listAll():Promise<IPostsEntity[]>{
-      const postsModel = await this._database.list(this._postModel)
-      const post = postsModel.map(modelToEntityPostMysql)
+  async create(resource: IPostsEntity): Promise<IPostsEntity> {
+    const postsModel = await this._database.create(this._postModel, resource)
+    return resource;
+  }
 
-      return post
+  async listAll(): Promise<IPostsEntity[]> {
+    const posts = await this._database.list(this._postModel);
+    return posts;
+  }
 
-    }
+  async listById(id: number): Promise<IPostsEntity | undefined> {
+    return undefined
+  }
 
+  async update(data: IPostsEntity): Promise<IPostsEntity | undefined> {
+    return undefined
+  }
 
-
+  async deleteId(id: number): Promise<void> {
+    return
+  }
 }
 
 export default new PostsRepositories(
- MysqlDatabase.getInstance(),
- postsModel
-
+  MysqlDatabase.getInstance(),
+  postsModel
 )
