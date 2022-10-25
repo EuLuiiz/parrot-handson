@@ -1,5 +1,5 @@
 import postsRepository from "../../../adapters/repositories/posts.repository";
-import { IPostsRepository } from "../../repositories/posts.interface.repository";
+import IPostsRepository from "../../repositories/posts.interface.repository";
 import { IUseCase } from "../usecase.interface";
 
 class DeletePostsUsecase implements IUseCase{
