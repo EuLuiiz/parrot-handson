@@ -5,8 +5,8 @@ export default function (post: IPostsEntity) {
     const postOne = {
         idpost: post.idpost,
         content: post.content,
-        user_id: post.user_id
+        iduser: post.iduser
     }
 
-    return { postOne: postOne};
+    return { postOne: postOne };
 }

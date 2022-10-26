@@ -5,7 +5,6 @@ import listByIdPostUsercase from '../../../domain/usecases/posts/listById.post.u
 import listPostUsercase from '../../../domain/usecases/posts/list.post.usercase';
 import updatePostUsercase from '../../../domain/usecases/posts/update.post.usercase';
 import deletePostUsercase from '../../../domain/usecases/posts/delete.post.usercase';
-import { TokenRequest } from '../../../domain/usecases/token/token.request.interface';
 
 const log: debug.IDebugger = debug('app:posts-controller');
 
@@ -23,8 +22,11 @@ class PostsController {
     }
 
     async create(req: express.Request, res: express.Response) {
-        const post = req.body;
-        post.userid = (req as TokenRequest).token;
+        const info = req.body.info;
+        const post = {
+            content: req.body.content,
+            iduser: info.iduser
+        }
         const postCreated = await createPostUsercase.execute(post);
         res.status(201).send(post);
     }

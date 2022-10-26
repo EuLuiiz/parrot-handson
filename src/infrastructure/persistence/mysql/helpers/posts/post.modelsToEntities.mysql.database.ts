@@ -8,7 +8,7 @@ export default function (post: any): IPostsEntity | undefined {
     let postOne: IPostsEntity = {
         idpost: post.idpost,
         content: post.content,
-        user_id: post.user_id
+        iduser : post.iduser
     }
 
     return (postOne as IPostsEntity)

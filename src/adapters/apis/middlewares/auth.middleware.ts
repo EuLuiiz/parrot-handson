@@ -12,6 +12,7 @@ export const Auth = async (request: express.Request, response: express.Response,
 
         const decode = jwt.verify(token, secretKey);
         (request as TokenRequest).token = decode
+        request.body.info = decode;
         next()
 
     } catch (error) {
