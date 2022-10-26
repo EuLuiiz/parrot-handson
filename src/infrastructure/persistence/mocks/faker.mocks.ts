@@ -1,6 +1,7 @@
 import { IUserEntity } from "../../../domain/entities/users/user.entity";
 import IMocks from "./mocks.interface";
 import { faker } from '@faker-js/faker';
+import { IPostsEntity } from "../../../domain/entities/posts/posts.entity";
 
 export default class fakerMocks implements IMocks {
     getUsers(): IUserEntity[] {
@@ -21,5 +22,18 @@ export default class fakerMocks implements IMocks {
             })
         })
         return users;
+    }
+    getPosts(): IPostsEntity[] {
+        const posts: IPostsEntity[] = [];
+        let contentG, iduserG;
+        Array.from({ length: 60 }).forEach(() => {
+            contentG = faker.lorem.words(Number(faker.finance.amount(1, 30, 0)));
+            iduserG = Number(faker.finance.amount(1, 20, 0));
+            posts.push({
+                content: contentG,
+                iduser: iduserG
+            })
+        })
+        return posts;
     }
 }
