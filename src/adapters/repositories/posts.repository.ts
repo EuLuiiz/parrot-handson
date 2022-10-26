@@ -5,6 +5,9 @@ import { MysqlDatabase } from "../../infrastructure/persistence/mysql/mysql.data
 import IPostsRepository from "../../domain/repositories/posts.interface.repository";
 import postsModel from "../../infrastructure/persistence/mysql/models/post.model";
 import * as sequelize from "sequelize";
+import postEntitiesToModelsMysqlDatabase from "../../infrastructure/persistence/mysql/helpers/posts/post.entitiesToModels.mysql.database";
+import logger from "../../infrastructure/logs/winston.logs";
+import postModelsToEntitiesMysqlDatabase from "../../infrastructure/persistence/mysql/helpers/posts/post.modelsToEntities.mysql.database";
 
 export class PostsRepositories implements IPostsRepository {
   constructor(
@@ -13,22 +16,55 @@ export class PostsRepositories implements IPostsRepository {
   ) { }
 
   async create(resource: IPostsEntity): Promise<IPostsEntity> {
-    const postsModel = await this._database.create(this._postModel, resource)
-    return resource;
+    try {
+      const { postOne } = postEntitiesToModelsMysqlDatabase(resource);
+      const postModel = await this._database.create(this._postModel, postOne);
+      resource.idpost = postModel.null;
+      logger.info(`Ok create.`);
+      return postModel;
+  } catch (error) {
+      logger.error('Erro no create do PostRepository:', error);
+      throw new Error((error as Error).message);
   }
-
+  
+}
   async listAll(): Promise<IPostsEntity[]> {
-    const posts = await this._database.list(this._postModel);
-    return posts;
+    try {
+      const posts = await this._database.list(this._postModel);
+      const postList = posts.map(postModelsToEntitiesMysqlDatabase);
+      logger.info(`PostRepository Ok.`);
+      return postList;
+  } catch (error) {
+      logger.error('Erro PostRepository:', error);
+      throw new Error((error as Error).message);
   }
+}
 
   async listById(id: number): Promise<IPostsEntity | undefined> {
-    return undefined
+    try {
+      const postOne = await this._database.listID(this._postModel, id);
+      logger.info(`Executado listID do PostRepository.`);
+      return postModelsToEntitiesMysqlDatabase(postOne);
   }
+  catch(error) {
+      logger.error('Erro no readById do PostRepository:', error);
+      throw new Error((error as Error).message);
+  }
+}
 
-  async update(data: IPostsEntity): Promise<IPostsEntity | undefined> {
-    return undefined
+  async update(id: IPostsEntity): Promise<IPostsEntity | undefined> {
+    try {
+      let postModel = await this._database.listID(this._postModel, id.idpost!);
+      const { postOne } = postEntitiesToModelsMysqlDatabase(id);
+      await this._database.update(postModel, postOne);
+      logger.info(`Executado updateById do PostRepository.`);
+      return id;
+  } catch (error) {
+      logger.error('Erro no updateById do PostRepository:', error);
+      throw new Error((error as Error).message);
   }
+  
+}
 
   async deleteId(id: number): Promise<void> {
     return

@@ -1,13 +1,12 @@
 import { MysqlDatabase } from "../mysql.database";
-import { DataTypes } from 'sequelize';
+import * as Sequelize from 'sequelize';
 
-export default MysqlDatabase.getInstance().createModel('posts', {
+export default MysqlDatabase.getInstance().createModel('post', {
     idpost: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true
     },
-    content: DataTypes.TEXT,
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE,
-    user_id: DataTypes.INTEGER
-});
+    content: Sequelize.DataTypes.STRING,
+    user_id: Sequelize.DataTypes.INTEGER
+})
