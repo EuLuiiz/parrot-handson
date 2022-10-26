@@ -22,52 +22,57 @@ export class PostsRepositories implements IPostsRepository {
       resource.idpost = postModel.null;
       logger.info(`Ok create.`);
       return postModel;
-  } catch (error) {
+    } catch (error) {
       logger.error('Erro no create do PostRepository:', error);
       throw new Error((error as Error).message);
+    }
+
   }
-  
-}
   async listAll(): Promise<IPostsEntity[]> {
     try {
       const posts = await this._database.list(this._postModel);
       const postList = posts.map(postModelsToEntitiesMysqlDatabase);
       logger.info(`PostRepository Ok.`);
       return postList;
-  } catch (error) {
+    } catch (error) {
       logger.error('Erro PostRepository:', error);
       throw new Error((error as Error).message);
+    }
   }
-}
 
   async listById(id: number): Promise<IPostsEntity | undefined> {
     try {
       const postOne = await this._database.listID(this._postModel, id);
       logger.info(`Executado listID do PostRepository.`);
       return postModelsToEntitiesMysqlDatabase(postOne);
-  }
-  catch(error) {
+    }
+    catch (error) {
       logger.error('Erro no readById do PostRepository:', error);
       throw new Error((error as Error).message);
+    }
   }
-}
 
-  async update(id: IPostsEntity): Promise<IPostsEntity | undefined> {
+  async update(post: IPostsEntity): Promise<IPostsEntity | undefined> {
     try {
-      let postModel = await this._database.listID(this._postModel, id.idpost!);
-      const { postOne } = postEntitiesToModelsMysqlDatabase(id);
+      let postModel = await this._database.listID(this._postModel, post.idpost!);
+      const { postOne } = postEntitiesToModelsMysqlDatabase(post);
       await this._database.update(postModel, postOne);
       logger.info(`Executado updateById do PostRepository.`);
-      return id;
-  } catch (error) {
+      return post;
+    } catch (error) {
       logger.error('Erro no updateById do PostRepository:', error);
       throw new Error((error as Error).message);
+    }
+
   }
-  
-}
 
   async deleteId(id: number): Promise<void> {
-    return
+    try {
+      const post = await this._database.delete(this._postModel, { idpost: id })
+      return
+    } catch (error) {
+      throw new Error((error as Error).message);
+    }
   }
 }
 

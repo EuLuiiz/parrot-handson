@@ -10,13 +10,8 @@ import cryptoPassUsers from '../helpers/crypto.pass.users';
 export class UsersRepository implements IUsersRepository {
     constructor(
         private _database: IDatabaseModel,
-        private _modelUsers: Sequelize.ModelCtor<Sequelize.Model<any, any>>,
-        private _modelPost: Sequelize.ModelCtor<Sequelize.Model<any, any>>
+        private _modelUsers: Sequelize.ModelCtor<Sequelize.Model<any, any>>
     ) {
-        this._modelUsers.hasOne(this._modelPost, {
-            foreignKey: 'user_id',
-            as: 'postagem'
-        })
     }
 
     async create(data: IUserEntity): Promise<IUserEntity> {
@@ -70,6 +65,5 @@ export class UsersRepository implements IUsersRepository {
 
 export default new UsersRepository(
     MysqlDatabase.getInstance(),
-    userModel,
-    postModel
+    userModel
 )

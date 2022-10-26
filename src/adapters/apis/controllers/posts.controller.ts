@@ -16,7 +16,7 @@ class PostsController {
 
     async getPostById(req: express.Request, res: express.Response) {
         const post = await listByIdPostUsercase.execute({
-            idpost: Number(req.params.idpost)
+            idpost: Number(req.params.listById)
         });
         res.status(200).send(post);
     }
@@ -27,13 +27,15 @@ class PostsController {
     }
 
     async updatePost(req: express.Request, res: express.Response) {
-        const post = await updatePostUsercase.execute(req.body);
+        const post = req.body
+        post.idpost = req.params.listById
+        const postAtt = await updatePostUsercase.execute(post);
         res.status(200).send(post);
     }
 
     async deletePost(req: express.Request, res: express.Response) {
         const post = await deletePostUsercase.execute({
-            idpost: Number(req.params.idpost)
+            idpost: Number(req.params.listById)
         });
         res.status(204).send();
     }

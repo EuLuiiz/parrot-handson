@@ -12,23 +12,14 @@ export class PostsRoutes extends CommonRoutesConfig {
     configureRoutes(): express.Application {
         this.app.route('/posts')
             .get(postsController.listPosts)
-            .post(
-                postsController.create
-            )
+            .post(postsController.create)
 
         this.app.route('/posts/:listById')
             .all()
-            .get(
-                postsController.getPostById
-            )
-            .put(
-                postsController.updatePost
-            )
-            .delete(
-//                postsMiddleware.idValidator,
-                postsController.deletePost
-                );
-            
+            .get(postsController.getPostById)
+            .put(postsController.updatePost)
+            .delete(postsController.deletePost)
+
         return this.app
     }
 }
