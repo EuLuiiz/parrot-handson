@@ -3,6 +3,7 @@ import { CommonRoutesConfig } from "./common.routes.config";
 // postsMiddleware
 import express from 'express';
 import postsController from "../controllers/posts.controller";
+import { Auth } from "../middlewares/auth.middleware";
 
 export class PostsRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
@@ -11,11 +12,12 @@ export class PostsRoutes extends CommonRoutesConfig {
 
     configureRoutes(): express.Application {
         this.app.route('/posts')
+            .all(Auth)
             .get(postsController.listPosts)
             .post(postsController.create)
 
         this.app.route('/posts/:listById')
-            .all()
+            .all(Auth)
             .get(postsController.getPostById)
             .put(postsController.updatePost)
             .delete(postsController.deletePost)

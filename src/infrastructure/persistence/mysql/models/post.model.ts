@@ -8,5 +8,5 @@ export default MysqlDatabase.getInstance().createModel('post', {
         autoIncrement: true
     },
     content: Sequelize.DataTypes.STRING,
-    user_id: Sequelize.DataTypes.INTEGER
+    iduser: Sequelize.DataTypes.INTEGER
 })
