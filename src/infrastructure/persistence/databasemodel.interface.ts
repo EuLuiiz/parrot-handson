@@ -5,5 +5,7 @@ export interface IDatabaseModel extends IDatabase {
     listID(type: any, dataId: number, includes?: object): any,
     list(type: any, includes?: object): any,
     update(type:any, properties: any): any,
+    listByUser(type:any, properties: any): any,
+
 
 }

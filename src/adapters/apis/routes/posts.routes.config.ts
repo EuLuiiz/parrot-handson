@@ -22,6 +22,12 @@ export class PostsRoutes extends CommonRoutesConfig {
             .put(postsController.updatePost)
             .delete(postsController.deletePost)
 
+        this.app.route('/posts/:listById/users')
+        .all(Auth)
+        .get(postsController.getPostById)
+        .put(postsController.updatePost)
+        .delete(postsController.deletePost)
+
         return this.app
     }
 }
