@@ -64,9 +64,9 @@ export class MysqlDatabase implements IDatabaseModel {
         }
     }
 
-    listByUser(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, dataWhere: Sequelize.WhereOptions<any> ): any {
+    listByWhere(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, dataWhere: Sequelize.WhereOptions<any>): any {
         try {
-            return model.findOne({
+            return model.findAll({
                 where: dataWhere
             });
         } catch (err) {

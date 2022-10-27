@@ -6,6 +6,5 @@ export default interface IPostsRepository {
     listById(id: number): Promise<IPostsEntity | undefined>,
     update(data: IPostsEntity): Promise<IPostsEntity | undefined>,
     deleteId(id: number): Promise<void>,
-    listByUser(type:any, properties: any): any,
-
+    listByUser(id: number): Promise<IPostsEntity[] | undefined>
 }

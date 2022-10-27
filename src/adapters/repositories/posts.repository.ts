@@ -52,20 +52,18 @@ export class PostsRepositories implements IPostsRepository {
     }
   }
 
-  async listByUser(post: string): Promise<IPostsEntity | undefined>{
-      try{
-          const postUser = await this._database.listByUser(this._postModel, {
-            user: post,
-          });
-        return postModelsToEntitiesMysqlDatabase(postUser);
-      }
-  
-    catch (error) {
+  async listByUser(id: number): Promise<IPostsEntity[] | undefined> {
+    try {
+      const posts = await this._database.listByWhere(this._postModel, {
+        iduser: id
+      })
+      return posts;
+    } catch (error) {
       logger.error('Erro no readById do PostRepository:', error);
       throw new Error((error as Error).message);
-      };
-    }
-  
+    };
+  }
+
   async update(post: IPostsEntity): Promise<IPostsEntity | undefined> {
     try {
       let postModel = await this._database.listID(this._postModel, post.idpost!);

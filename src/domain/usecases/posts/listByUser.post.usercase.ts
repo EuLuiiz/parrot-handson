@@ -6,14 +6,15 @@ import IUsersRepository from "../../repositories/users.interface.repository";
 
 import { IUseCase } from "../usecase.interface";
 
-class ListIdPostUsecase implements IUseCase{
-    constructor(private _repository: IPostsRepository){}
-    async execute(data: {id: number}): Promise<IPostsEntity | undefined> {
-       return await this._repository.listByUser(data.id, a);
+class ListPostIdPostUsecase implements IUseCase{
+    constructor(private _repository: IPostsRepository){
+
+    }
+    async execute(data: {iduser:number}): Promise<IPostsEntity[] | undefined> {
+       return await this._repository.listByUser(data.iduser)
     }
 }
 
-export default new ListIdPostUsecase(
-    postsRepository,
-
+export default new ListPostIdPostUsecase(
+    postsRepository
 )

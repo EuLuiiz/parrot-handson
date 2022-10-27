@@ -18,7 +18,7 @@ export class UsersRepository implements IUsersRepository {
         try {
             data.password = cryptoPassUsers(data.password);
             const newUser = await this._database.create(this._modelUsers, data);
-            return newUser;
+            return data;
         } catch (error) {
             throw new Error((error as Error).message);
         }

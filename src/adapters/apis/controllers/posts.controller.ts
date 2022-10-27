@@ -5,6 +5,7 @@ import listByIdPostUsercase from '../../../domain/usecases/posts/listById.post.u
 import listPostUsercase from '../../../domain/usecases/posts/list.post.usercase';
 import updatePostUsercase from '../../../domain/usecases/posts/update.post.usercase';
 import deletePostUsercase from '../../../domain/usecases/posts/delete.post.usercase';
+import listByUserPostUsercase from '../../../domain/usecases/posts/listByUser.post.usercase';
 
 const log: debug.IDebugger = debug('app:posts-controller');
 
@@ -43,6 +44,13 @@ class PostsController {
             idpost: Number(req.params.listById)
         });
         res.status(204).send();
+    }
+
+    async listPostIdUser(req: express.Request, res: express.Response) {
+        const posts = await listByUserPostUsercase.execute({
+            iduser: Number(req.params.listById)
+        });
+        res.status(200).send(posts)
     }
 }
 
