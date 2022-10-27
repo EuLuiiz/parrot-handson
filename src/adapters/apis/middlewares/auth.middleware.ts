@@ -1,4 +1,4 @@
-import { secretKey } from '../../../infrastructure/config/token/secret';
+import { secretKey } from '../../../infrastructure/config/token/secret.config';
 import express from 'express'
 import jwt from 'jsonwebtoken'
 import { TokenRequest } from '../../../domain/usecases/token/token.request.interface';

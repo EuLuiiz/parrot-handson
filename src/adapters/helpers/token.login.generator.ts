@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { secretKey } from '../../infrastructure/config/token/secret';
+import { secretKey } from '../../infrastructure/config/token/secret.config';
 import listUsersUsecase from '../../domain/usecases/users/list.users.usecase';
 
 export default async function (request: { email: string }) {

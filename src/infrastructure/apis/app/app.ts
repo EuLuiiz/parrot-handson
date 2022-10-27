@@ -8,6 +8,7 @@ import cors from 'cors';
 import debug from 'debug';
 
 import constantsConfig from '../../config/constants/constants.config';
+import appConfig from '../../config/app/app.config';
 
 //Routes
 import { CommonRoutesConfig } from '../../../adapters/apis/routes/common.routes.config';
@@ -18,7 +19,7 @@ import { PostsRoutes } from '../../../adapters/apis/routes/posts.routes.config';
 // Configs
 const app: express.Application = express();
 const server: http.Server = http.createServer(app);
-const port = 8000;
+const port = appConfig.port;
 const routes: CommonRoutesConfig[] = [];
 const debugLog: debug.IDebugger = debug('app');
 
