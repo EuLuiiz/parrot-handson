@@ -36,7 +36,10 @@ class PostsController {
         const post = req.body
         post.idpost = req.params.listById
         const postAtt = await updatePostUsercase.execute(post);
-        res.status(200).send(post);
+        res.status(200).send({
+            content: post.content,
+            idpost: post.idpost
+        });
     }
 
     async deletePost(req: express.Request, res: express.Response) {

@@ -10,5 +10,14 @@ export default async function (request: { email: string }) {
     }, secretKey, {
         expiresIn: '2 days'
     })
-    return token;
+    return {
+        User: {
+            iduser: repeat?.iduser,
+            name: repeat?.name,
+            email: repeat?.email,
+            apartment: repeat?.apartment,
+            imagelink:repeat?.imagelink
+        },
+        token: token
+    };
 }

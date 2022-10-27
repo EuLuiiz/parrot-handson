@@ -10,7 +10,8 @@ import cryptoPassUsers from '../helpers/crypto.pass.users';
 export class UsersRepository implements IUsersRepository {
     constructor(
         private _database: IDatabaseModel,
-        private _modelUsers: Sequelize.ModelCtor<Sequelize.Model<any, any>>
+        private _modelUsers: Sequelize.ModelCtor<Sequelize.Model<any, any>>,
+        private _modelPosts: Sequelize.ModelCtor<Sequelize.Model<any, any>>
     ) {
     }
 
@@ -55,6 +56,7 @@ export class UsersRepository implements IUsersRepository {
 
     async delete(id: number): Promise<void> {
         try {
+            const post = await this._database.delete(this._modelPosts, { iduser: id });
             const user = await this._database.delete(this._modelUsers, { iduser: id });
             return
         } catch (error) {
@@ -65,5 +67,6 @@ export class UsersRepository implements IUsersRepository {
 
 export default new UsersRepository(
     MysqlDatabase.getInstance(),
-    userModel
+    userModel,
+    postModel
 )
