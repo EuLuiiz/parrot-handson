@@ -1,8 +1,7 @@
 import { CommonRoutesConfig } from "./common.routes.config";
-// postsController
-// postsMiddleware
 import express from 'express';
 import postsController from "../controllers/posts.controller";
+//Middleware
 import { Auth } from "../middlewares/auth.middleware";
 
 export class PostsRoutes extends CommonRoutesConfig {

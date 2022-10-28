@@ -22,7 +22,7 @@ export class UsersRepository implements IUsersRepository {
         try {
             data.password = cryptoPassUsers(data.password);
             const newUser = await this._database.create(this._modelUsers, data);
-            return data;
+            return usersModelsToEntities(data)!;
         } catch (error) {
             throw new Error((error as Error).message);
         }
@@ -31,7 +31,8 @@ export class UsersRepository implements IUsersRepository {
     async list(): Promise<IUserEntity[]> {
         try {
             const users = await this._database.list(this._modelUsers);
-            return users;
+            const listOfUsers = users.map(usersModelsToEntities)
+            return listOfUsers;
         } catch (error) {
             throw new Error((error as Error).message);
         }
@@ -40,7 +41,7 @@ export class UsersRepository implements IUsersRepository {
     async listID(id: number): Promise<IUserEntity | undefined> {
         try {
             const user = await this._database.listID(this._modelUsers, id);
-            return user;
+            return usersModelsToEntities(user);
         } catch (error) {
             throw new Error((error as Error).message);
         }
@@ -50,8 +51,8 @@ export class UsersRepository implements IUsersRepository {
         try {
             data.password = cryptoPassUsers(data.password);
             const user = await this._database.listID(this._modelUsers, data.iduser!)
-            const userAtt = await this._database.update(user, data)
-            return userAtt;
+            const userAtt = await this._database.update(user, data);
+            return usersModelsToEntities(userAtt) ;
         } catch (error) {
             throw new Error((error as Error).message);
         }
