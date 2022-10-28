@@ -23,8 +23,8 @@ jest.mock("../../../adapters/repositories/users.repository");
             // apartment: number,
             // password: string,
             // imagelink: string
-}
-        })
+            
+        })  
     
         const user: IUserEntity = {
             name: "Tiago",
