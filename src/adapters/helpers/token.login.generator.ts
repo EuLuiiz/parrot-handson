@@ -1,23 +1,18 @@
 import jwt from 'jsonwebtoken';
 import { secretKey } from '../../infrastructure/config/token/secret.config';
-import listUsersUsecase from '../../domain/usecases/users/list.users.usecase';
+import { IUserEntity } from '../../domain/entities/users/user.entity';
 
-export default async function (request: { email: string }) {
-    const users = await listUsersUsecase.execute();
-    const repeat = users?.find(user => user.email === request.email);
+export default async function (user: IUserEntity) {
+    if(!user){
+        return
+    }
     const token = jwt.sign({
-        iduser: repeat!.iduser
+        iduser: user!.iduser
     }, secretKey, {
         expiresIn: '2 days'
     })
     return {
-        User: {
-            iduser: repeat?.iduser,
-            name: repeat?.name,
-            email: repeat?.email,
-            apartment: repeat?.apartment,
-            imagelink:repeat?.imagelink
-        },
-        token: token
-    };
+        User: user,
+        Token: token
+    }
 }

@@ -7,14 +7,17 @@ export const Auth = async (request: express.Request, response: express.Response,
     try {
         const token = request.header('Authorization')?.split(' ')[1]
         if (!token) {
-            throw new Error();
+            response.status(401).send('Não foi possível obter autenticação');
+        } else {
+            const decode = jwt.verify(token, secretKey);
+            if (typeof decode == 'string') {
+                response.status(401).send('Não foi possível obter autenticação');
+            } else {
+                (request as TokenRequest).token = decode;
+                next();
+            }
+            next()
         }
-
-        const decode = jwt.verify(token, secretKey);
-        (request as TokenRequest).token = decode
-        request.body.info = decode;
-        next()
-
     } catch (error) {
         console.log(error)
         response.status(401).send('Não foi possível obter autenticação');

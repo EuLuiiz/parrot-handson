@@ -54,7 +54,7 @@ export class PostsRepositories implements IPostsRepository {
 
   async listByUser(id: number): Promise<IPostsEntity[] | undefined> {
     try {
-      const posts = await this._database.listByWhere(this._postModel, {
+      const posts = await this._database.listAllByWhere(this._postModel, {
         iduser: id
       })
       return posts;

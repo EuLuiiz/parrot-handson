@@ -64,13 +64,23 @@ export class MysqlDatabase implements IDatabaseModel {
         }
     }
 
-    listByWhere(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, dataWhere: Sequelize.WhereOptions<any>): any {
+    listAllByWhere(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, dataWhere: Sequelize.WhereOptions<any>): any {
         try {
             return model.findAll({
                 where: dataWhere
             });
         } catch (err) {
             throw new Error((err as Error).message);
+        }
+    }
+
+    listOneByWhere(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, dataWhere: Sequelize.WhereOptions<any>): any {
+        try {
+            return model.findOne({
+                where: dataWhere
+            })
+        } catch (error) {
+            throw new Error((error as Error).message);
         }
     }
 
