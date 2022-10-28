@@ -4,6 +4,7 @@ import postsController from "../controllers/posts.controller";
 //Middleware
 import { Auth } from "../middlewares/auth.middleware";
 import validationsMiddleware from "../middlewares/validations.middleware";
+import postsMiddleware from "../middlewares/posts.middleware";
 
 export class PostsRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
@@ -17,7 +18,8 @@ export class PostsRoutes extends CommonRoutesConfig {
             .post(postsController.create)
 
         this.app.route('/posts/:listById')
-            .all(Auth)
+            .all(Auth,
+                postsMiddleware.validatePostExist)
             .get(postsController.getPostById)
             .put(postsController.updatePost)
             .delete(postsController.deletePost)
