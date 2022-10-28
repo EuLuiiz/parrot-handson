@@ -41,7 +41,7 @@ class PostsController {
             idpost: post.idpost
         });
     }
-    
+
     async deletePost(req: express.Request, res: express.Response) {
         const post = await deletePostUsercase.execute({
             idpost: Number(req.params.listById)

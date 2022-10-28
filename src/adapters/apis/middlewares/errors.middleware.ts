@@ -7,7 +7,7 @@ class Errors {
         if (error.name === constantsConfig.TYPES_ERROR.UNAUTHORIZED) {
             response.status(401).send(constantsConfig.AUTH.MESSAGES.ERROR.TOKEN_INVALID);
         }
-    }
+    };
 }
 
 export default new Errors();

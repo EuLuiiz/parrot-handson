@@ -3,6 +3,7 @@ import express from 'express';
 import postsController from "../controllers/posts.controller";
 //Middleware
 import { Auth } from "../middlewares/auth.middleware";
+import validationsMiddleware from "../middlewares/validations.middleware";
 
 export class PostsRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
