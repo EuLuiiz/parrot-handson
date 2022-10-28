@@ -31,7 +31,7 @@ class UsersControllers {
         const user = request.body;
         user.iduser = request.params.userID;
         const updated = await updateUsersUsecase.execute(user);
-        response.status(200).send(user)
+        response.status(200).send(updated)
     }
 
     async delete(request: express.Request, response: express.Response) {

@@ -1,0 +1,1297 @@
+{
+	"info": {
+		"_postman_id": "471fb13a-0540-4ebb-bf09-7c588fe2434e",
+		"name": "Parrot DOC API",
+		"description": "# Introduction\n\nDocumentação para ultilização da API Parrot - Hands On Grupo 11.\n\n# Authentication\n\nEm algumas rotas é necessário autenticação, a autenticação é feita com o token informado após o Login.\n\nO payload do token contém o ID do usuário para manipulação.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24048036"
+	},
+	"item": [
+		{
+			"name": "Testar API",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						""
+					]
+				},
+				"description": "Rota de teste para verificar se a API está funcionando corretamente."
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b-mQP8h6Ty3Ow6ZnF1EuI55RIBHec\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 09:48:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Server running successfully"
+				}
+			]
+		},
+		{
+			"name": "Listar Todos os Usuários",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Lista um array com todos os usuários cadastrados no sistema."
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3112"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c28-YhXyUJdqLFGFkyQM7iK8ilQ0hbw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 09:48:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"iduser\": 1,\n        \"name\": \"Marguerite Dooley\",\n        \"email\": \"margueritedooley48@gmail.com\",\n        \"apartment\": 28,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=12483\"\n    },\n    {\n        \"iduser\": 2,\n        \"name\": \"Mrs. Gregg Stehr\",\n        \"email\": \"mrs.greggstehr21@gmail.com\",\n        \"apartment\": 35,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=52515\"\n    },\n    {\n        \"iduser\": 3,\n        \"name\": \"Hugh Bradtke\",\n        \"email\": \"hughbradtke76@yahoo.com\",\n        \"apartment\": 65,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=63599\"\n    },\n    {\n        \"iduser\": 4,\n        \"name\": \"Lester Stark\",\n        \"email\": \"lesterstark.hilpert13@gmail.com\",\n        \"apartment\": 70,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=51061\"\n    },\n    {\n        \"iduser\": 5,\n        \"name\": \"Brittany Jenkins\",\n        \"email\": \"brittanyjenkins94@yahoo.com\",\n        \"apartment\": 86,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=79235\"\n    },\n    {\n        \"iduser\": 6,\n        \"name\": \"Ricardo Jones\",\n        \"email\": \"ricardojones_oconner36@gmail.com\",\n        \"apartment\": 63,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=24217\"\n    },\n    {\n        \"iduser\": 7,\n        \"name\": \"Denise Conn\",\n        \"email\": \"deniseconn.parisian@yahoo.com\",\n        \"apartment\": 75,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=20367\"\n    },\n    {\n        \"iduser\": 8,\n        \"name\": \"Margarita Schamberger Jr.\",\n        \"email\": \"margaritaschambergerjr.21@gmail.com\",\n        \"apartment\": 94,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=95593\"\n    },\n    {\n        \"iduser\": 9,\n        \"name\": \"Marcella Rutherford\",\n        \"email\": \"marcellarutherford_runte@hotmail.com\",\n        \"apartment\": 75,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=33072\"\n    },\n    {\n        \"iduser\": 10,\n        \"name\": \"Dewey Armstrong\",\n        \"email\": \"deweyarmstrong77@yahoo.com\",\n        \"apartment\": 95,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=91407\"\n    },\n    {\n        \"iduser\": 11,\n        \"name\": \"Rolando Howell\",\n        \"email\": \"rolandohowell_rutherford@yahoo.com\",\n        \"apartment\": 96,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=982\"\n    },\n    {\n        \"iduser\": 12,\n        \"name\": \"Dr. Tyler Lubowitz\",\n        \"email\": \"dr.tylerlubowitz_smith@gmail.com\",\n        \"apartment\": 14,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=71770\"\n    },\n    {\n        \"iduser\": 13,\n        \"name\": \"Danielle Roberts\",\n        \"email\": \"danielleroberts22@gmail.com\",\n        \"apartment\": 24,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=61829\"\n    },\n    {\n        \"iduser\": 14,\n        \"name\": \"Clifford Stracke\",\n        \"email\": \"cliffordstracke_heaney@gmail.com\",\n        \"apartment\": 94,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=78221\"\n    },\n    {\n        \"iduser\": 15,\n        \"name\": \"Julian Kling\",\n        \"email\": \"juliankling_kirlin34@yahoo.com\",\n        \"apartment\": 31,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=14891\"\n    },\n    {\n        \"iduser\": 16,\n        \"name\": \"Elena Keebler\",\n        \"email\": \"elenakeebler36@hotmail.com\",\n        \"apartment\": 68,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=70754\"\n    },\n    {\n        \"iduser\": 17,\n        \"name\": \"Virgil King\",\n        \"email\": \"virgilking28@yahoo.com\",\n        \"apartment\": 62,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=32100\"\n    },\n    {\n        \"iduser\": 18,\n        \"name\": \"Dr. Ken Carter\",\n        \"email\": \"dr.kencarter69@yahoo.com\",\n        \"apartment\": 88,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=46329\"\n    },\n    {\n        \"iduser\": 19,\n        \"name\": \"Elbert Wilderman\",\n        \"email\": \"elbertwilderman_wyman89@gmail.com\",\n        \"apartment\": 37,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=17467\"\n    },\n    {\n        \"iduser\": 20,\n        \"name\": \"Clayton Jones\",\n        \"email\": \"claytonjones_fritsch@gmail.com\",\n        \"apartment\": 32,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=56824\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Cadastrar um novo Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Victor Luiz\",\r\n    \"email\":\"victor@gmail.com\",\r\n    \"apartment\": 11,\r\n    \"password\": \"grupo11\",\r\n    \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=65374\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Cadastra um novo usuário.\n\n**No Body, os campos obrigatórios são:**\n\n**name | email | apartment | password | imagelink**"
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Victor Luiz\",\r\n    \"email\":\"victor@gmail.com\",\r\n    \"apartment\": 11,\r\n    \"password\": \"grupo11\",\r\n    \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=65374\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7e-HKjIjl2RR9L5ytKY8mbp8Qk+d1c\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 09:50:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Victor Luiz\",\n    \"email\": \"victor@gmail.com\",\n    \"apartment\": 11,\n    \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=65374\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login / Autenticação",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"victor@gmail.com\",\r\n    \"password\": \"grupo11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Rota para efetuar o Login, como resposta terá um objeto contendo a informação do usuário logado e o token para autenticação / autorização\n\n**Os campos obrigatórios são:**\n\n**email | password**"
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"victor@gmail.com\",\r\n    \"password\": \"grupo11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "302"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12e-kNg4n9ChxaU8zGbIhn2fcGHirQk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 09:51:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"User\": {\n        \"iduser\": 21,\n        \"name\": \"Victor Luiz\",\n        \"email\": \"victor@gmail.com\",\n        \"apartment\": 11,\n        \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=65374\"\n    },\n    \"Token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Um Usuário",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"15"
+					]
+				},
+				"description": "É necessário um token para obter autorização que retornará o usuário específico."
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"15"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "153"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"99-w6OGEJe/8FHRjGa4d1xpCUB2Jy0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 09:52:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"iduser\": 15,\n    \"name\": \"Julian Kling\",\n    \"email\": \"juliankling_kirlin34@yahoo.com\",\n    \"apartment\": 31,\n    \"imagelink\": \"https://loremflickr.com/640/480/cats?lock=14891\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Atualizar Um Usuário",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Victor Atualizado\",\r\n    \"email\": \"victoratualizado@gmail.com\",\r\n    \"apartment\": 11,\r\n    \"password\": \"atualizado11\",\r\n    \"imagelink\": \"outrolink.com/atualizei\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"21"
+					]
+				},
+				"description": "É necessário um token para autorização!\n\n**Os campos obrigatórios são:**\n\n**name | email | apartment | password | imagelink**"
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Victor Atualizado\",\r\n    \"email\": \"victoratualizado@gmail.com\",\r\n    \"apartment\": 11,\r\n    \"password\": \"atualizado11\",\r\n    \"imagelink\": \"outrolink.com/atualizei\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"21"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"82-UPfj0fABSWIdOzFWzmnFbWzZiKY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 09:58:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"iduser\": 21,\n    \"name\": \"Victor Atualizado\",\n    \"email\": \"victoratualizado@gmail.com\",\n    \"apartment\": 11,\n    \"imagelink\": \"outrolink.com/atualizei\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Deletar Um Usuário",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"21"
+					]
+				},
+				"description": "É necessário um token para autorização!\n\nVai deletar o usuário e todas as suas postagens criadas."
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"21"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:00:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Listar Todas as Postagens",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts"
+					]
+				},
+				"description": "É necessário um token para autorização!\n\nVai listar todas as postagens criadas."
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjIxLCJpYXQiOjE2NjY5NTA2ODEsImV4cCI6MTY2NzEyMzQ4MX0.1nEO2Abbbjkf71hjyuWfEx7dKqL6hTXmGMAJvL_F1hk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "8902"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22c6-vYsITSDYLx+ZFWqDkZniifZG2Ck\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:00:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idpost\": 1,\n        \"content\": \"repellat minus ea voluptate libero mollitia iure inventore laudantium ad omnis modi magnam ea suscipit assumenda fugiat vel reiciendis expedita earum facere dignissimos aliquam\",\n        \"iduser\": 9\n    },\n    {\n        \"idpost\": 2,\n        \"content\": \"molestias dolores aspernatur esse delectus facilis ipsam eius quaerat sapiente tempore tempora\",\n        \"iduser\": 14\n    },\n    {\n        \"idpost\": 3,\n        \"content\": \"ipsa voluptatibus\",\n        \"iduser\": 11\n    },\n    {\n        \"idpost\": 4,\n        \"content\": \"veniam reprehenderit neque modi culpa nemo reiciendis facere incidunt laborum et aspernatur ipsam ea tempora totam\",\n        \"iduser\": 13\n    },\n    {\n        \"idpost\": 5,\n        \"content\": \"consequuntur quam placeat quaerat ipsum expedita magni ipsam excepturi beatae nostrum laborum dignissimos nulla voluptatum molestiae enim saepe itaque possimus laudantium repellendus maiores\",\n        \"iduser\": 6\n    },\n    {\n        \"idpost\": 6,\n        \"content\": \"eius unde debitis nemo temporibus doloremque minima velit ad eius repudiandae cupiditate voluptatibus atque\",\n        \"iduser\": 15\n    },\n    {\n        \"idpost\": 7,\n        \"content\": \"dolor harum numquam quod excepturi doloribus voluptatibus tenetur mollitia animi fuga dolores\",\n        \"iduser\": 3\n    },\n    {\n        \"idpost\": 8,\n        \"content\": \"repudiandae corrupti optio iste optio debitis animi quam sint earum ipsam eveniet recusandae enim quae distinctio eius voluptates fugiat illo vel similique id consequuntur repellat possimus\",\n        \"iduser\": 9\n    },\n    {\n        \"idpost\": 9,\n        \"content\": \"laudantium sequi pariatur aut quas at dicta ullam iusto optio fuga hic placeat excepturi ratione tenetur illo tenetur asperiores illum reiciendis modi libero iste sequi doloremque eaque\",\n        \"iduser\": 1\n    },\n    {\n        \"idpost\": 10,\n        \"content\": \"praesentium deleniti repellat facilis occaecati voluptatem adipisci sit unde suscipit possimus corrupti vitae\",\n        \"iduser\": 17\n    },\n    {\n        \"idpost\": 11,\n        \"content\": \"placeat ut inventore dolorem exercitationem facere voluptatem autem quidem asperiores culpa quibusdam ullam dolores vel iste aliquam distinctio\",\n        \"iduser\": 3\n    },\n    {\n        \"idpost\": 12,\n        \"content\": \"voluptatum ipsa deserunt voluptatem non dignissimos optio autem at ea iure hic porro quisquam amet modi laudantium eligendi\",\n        \"iduser\": 14\n    },\n    {\n        \"idpost\": 13,\n        \"content\": \"velit perspiciatis dolor iste nam natus ratione eaque repudiandae cum laboriosam eveniet deleniti officia\",\n        \"iduser\": 17\n    },\n    {\n        \"idpost\": 14,\n        \"content\": \"quos iure maxime molestias ab autem dicta iste\",\n        \"iduser\": 18\n    },\n    {\n        \"idpost\": 15,\n        \"content\": \"eligendi ratione magnam provident nulla praesentium corporis laboriosam blanditiis architecto iure minus quod in numquam libero est quisquam sed soluta eaque minus\",\n        \"iduser\": 6\n    },\n    {\n        \"idpost\": 16,\n        \"content\": \"doloribus odio autem tempore nulla eligendi temporibus eos\",\n        \"iduser\": 18\n    },\n    {\n        \"idpost\": 17,\n        \"content\": \"iusto\",\n        \"iduser\": 2\n    },\n    {\n        \"idpost\": 18,\n        \"content\": \"illum possimus hic eum ipsam\",\n        \"iduser\": 6\n    },\n    {\n        \"idpost\": 19,\n        \"content\": \"quo exercitationem voluptates ipsam nobis ad labore corporis minima quis quaerat consequuntur explicabo commodi blanditiis provident nisi soluta neque laudantium minus nobis voluptatum earum ab\",\n        \"iduser\": 6\n    },\n    {\n        \"idpost\": 20,\n        \"content\": \"iure id ab deserunt nobis minima distinctio at aperiam veniam distinctio accusamus fugiat architecto corrupti odit\",\n        \"iduser\": 4\n    },\n    {\n        \"idpost\": 21,\n        \"content\": \"assumenda natus dolores labore soluta rerum tempore vitae\",\n        \"iduser\": 12\n    },\n    {\n        \"idpost\": 22,\n        \"content\": \"laboriosam totam nihil facere vel saepe modi dolores labore voluptatem iure accusamus facere adipisci consequuntur aspernatur quis\",\n        \"iduser\": 4\n    },\n    {\n        \"idpost\": 23,\n        \"content\": \"debitis odit aperiam eveniet cupiditate excepturi mollitia totam a cumque fugiat illum iure assumenda modi provident ipsum occaecati perspiciatis quaerat id animi\",\n        \"iduser\": 11\n    },\n    {\n        \"idpost\": 24,\n        \"content\": \"pariatur consequatur sed incidunt quo voluptatem ullam voluptate libero nihil sit reprehenderit beatae neque sit deserunt dolore illo dignissimos illo recusandae\",\n        \"iduser\": 2\n    },\n    {\n        \"idpost\": 25,\n        \"content\": \"id labore odit occaecati cumque cupiditate\",\n        \"iduser\": 19\n    },\n    {\n        \"idpost\": 26,\n        \"content\": \"nobis repellat\",\n        \"iduser\": 19\n    },\n    {\n        \"idpost\": 27,\n        \"content\": \"ipsa provident debitis rerum\",\n        \"iduser\": 6\n    },\n    {\n        \"idpost\": 28,\n        \"content\": \"libero facilis quia animi illo dolore debitis sint molestiae nam voluptate amet perferendis ducimus accusantium expedita molestiae autem labore autem maiores nemo recusandae asperiores minus dolores qui aspernatur voluptas\",\n        \"iduser\": 4\n    },\n    {\n        \"idpost\": 29,\n        \"content\": \"sunt minima odit distinctio officia architecto sunt quaerat asperiores alias delectus voluptatum earum architecto vel omnis aliquid ad ab modi sapiente totam quibusdam saepe aliquid fugiat\",\n        \"iduser\": 10\n    },\n    {\n        \"idpost\": 30,\n        \"content\": \"iste ratione eius neque sapiente odio eum totam placeat molestiae in modi voluptatem repudiandae non ducimus animi laborum consequuntur nihil similique numquam\",\n        \"iduser\": 12\n    },\n    {\n        \"idpost\": 31,\n        \"content\": \"asperiores accusantium debitis nostrum consequuntur tempora\",\n        \"iduser\": 9\n    },\n    {\n        \"idpost\": 32,\n        \"content\": \"tempore tempore aperiam eaque laborum incidunt autem magni suscipit mollitia ipsum incidunt doloremque saepe numquam\",\n        \"iduser\": 11\n    },\n    {\n        \"idpost\": 33,\n        \"content\": \"inventore dolorem quos repellendus iusto iusto voluptatum vero alias non possimus earum\",\n        \"iduser\": 6\n    },\n    {\n        \"idpost\": 34,\n        \"content\": \"minus necessitatibus nihil quae impedit minus aspernatur eligendi ex eaque natus quibusdam ullam voluptatem error quidem distinctio debitis praesentium a ea dignissimos molestias\",\n        \"iduser\": 1\n    },\n    {\n        \"idpost\": 35,\n        \"content\": \"vel magni nihil laudantium veniam ipsa repudiandae ex iste ab aspernatur fugiat error atque ratione omnis ab fugit officiis sint error cum provident quia cumque\",\n        \"iduser\": 9\n    },\n    {\n        \"idpost\": 36,\n        \"content\": \"veritatis ipsam necessitatibus error ipsam officiis perferendis architecto doloribus minus tempora delectus voluptatibus aliquam illo placeat quod corporis\",\n        \"iduser\": 16\n    },\n    {\n        \"idpost\": 37,\n        \"content\": \"qui ducimus commodi doloribus aspernatur non in neque enim quae eum inventore vel iusto deleniti ea velit libero\",\n        \"iduser\": 7\n    },\n    {\n        \"idpost\": 38,\n        \"content\": \"reiciendis nesciunt ex illo molestiae culpa vero ea labore recusandae laborum provident quibusdam\",\n        \"iduser\": 12\n    },\n    {\n        \"idpost\": 39,\n        \"content\": \"ex corrupti ullam vel\",\n        \"iduser\": 19\n    },\n    {\n        \"idpost\": 40,\n        \"content\": \"debitis provident sed saepe eveniet adipisci accusamus voluptatum quos labore a numquam delectus cum ut ab\",\n        \"iduser\": 13\n    },\n    {\n        \"idpost\": 41,\n        \"content\": \"iure quod\",\n        \"iduser\": 15\n    },\n    {\n        \"idpost\": 42,\n        \"content\": \"nemo repellat repellendus natus nobis libero voluptates nostrum sunt nemo totam ullam maxime quam voluptates expedita est eius\",\n        \"iduser\": 15\n    },\n    {\n        \"idpost\": 43,\n        \"content\": \"repellendus cumque porro quia possimus corrupti itaque eius quod ab nihil laudantium omnis ex quis rem iste porro rerum quod sequi vel harum a ex\",\n        \"iduser\": 5\n    },\n    {\n        \"idpost\": 44,\n        \"content\": \"placeat\",\n        \"iduser\": 13\n    },\n    {\n        \"idpost\": 45,\n        \"content\": \"alias nihil perspiciatis accusamus unde dignissimos vitae maxime enim eum blanditiis\",\n        \"iduser\": 8\n    },\n    {\n        \"idpost\": 46,\n        \"content\": \"omnis reiciendis iusto voluptatibus a soluta similique dignissimos facilis quas eligendi dolorum incidunt assumenda voluptate vel perspiciatis beatae ut neque placeat\",\n        \"iduser\": 18\n    },\n    {\n        \"idpost\": 47,\n        \"content\": \"quidem eligendi magni nostrum minima quaerat dolorum vitae ducimus corrupti recusandae porro adipisci accusamus reiciendis facilis consequuntur ab aliquid asperiores quia odit sequi tempora similique temporibus nulla cupiditate repellendus\",\n        \"iduser\": 1\n    },\n    {\n        \"idpost\": 48,\n        \"content\": \"hic quisquam voluptatibus veritatis dolor est fugiat assumenda nesciunt voluptatum aliquam hic quidem distinctio corporis laudantium veniam harum hic officia beatae\",\n        \"iduser\": 10\n    },\n    {\n        \"idpost\": 49,\n        \"content\": \"consequatur assumenda beatae porro quia quibusdam dolorum error totam dolores in ex provident unde velit vero adipisci aut neque sapiente\",\n        \"iduser\": 17\n    },\n    {\n        \"idpost\": 50,\n        \"content\": \"quos laboriosam laborum blanditiis eius optio fugit maiores eligendi maiores totam totam molestias suscipit vitae deleniti ut qui eum molestias perferendis quas laboriosam perspiciatis voluptates quaerat\",\n        \"iduser\": 12\n    },\n    {\n        \"idpost\": 51,\n        \"content\": \"nisi similique eaque sequi deserunt accusantium in eius libero aliquid architecto\",\n        \"iduser\": 14\n    },\n    {\n        \"idpost\": 52,\n        \"content\": \"voluptates enim molestias assumenda\",\n        \"iduser\": 7\n    },\n    {\n        \"idpost\": 53,\n        \"content\": \"odit inventore ipsam vel quaerat incidunt dolore odio nam omnis atque consectetur facere laborum in esse eveniet minus\",\n        \"iduser\": 6\n    },\n    {\n        \"idpost\": 54,\n        \"content\": \"omnis dignissimos necessitatibus voluptatum natus provident sunt neque consectetur deserunt molestias vitae mollitia corporis\",\n        \"iduser\": 1\n    },\n    {\n        \"idpost\": 55,\n        \"content\": \"esse quaerat blanditiis in tenetur impedit ab atque explicabo possimus ipsum libero ratione velit veritatis maxime in aliquid\",\n        \"iduser\": 5\n    },\n    {\n        \"idpost\": 56,\n        \"content\": \"incidunt repudiandae nulla tempora magni\",\n        \"iduser\": 16\n    },\n    {\n        \"idpost\": 57,\n        \"content\": \"labore sed at saepe sit quaerat accusantium debitis accusamus sapiente esse odit reiciendis aspernatur distinctio et odit necessitatibus labore libero aliquam vitae maiores nostrum facere reiciendis\",\n        \"iduser\": 20\n    },\n    {\n        \"idpost\": 58,\n        \"content\": \"libero expedita vero officia numquam praesentium modi sit\",\n        \"iduser\": 2\n    },\n    {\n        \"idpost\": 59,\n        \"content\": \"molestias optio\",\n        \"iduser\": 9\n    },\n    {\n        \"idpost\": 60,\n        \"content\": \"incidunt quaerat ea\",\n        \"iduser\": 16\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Criar uma nova Postagem",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\":\"Essa semana foi a que eu mais gostei, apesar dos altos e baixos...\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts"
+					]
+				},
+				"description": "É necessário um token para autorização!\n\n**Os campos obrigatórios são:**\n\n**content**"
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Essa semana foi a que eu mais gostei, apesar dos altos e baixos...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "91"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5b-VnnObHoIXAZ/VehEtNERUS2HblY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:03:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": \"Essa semana foi a que eu mais gostei, apesar dos altos e baixos...\",\n    \"iduser\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Uma Postagem",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/61",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"61"
+					]
+				},
+				"description": "É necessário um token para autorização!\n\nLista uma postagem específica a partir de seu ID"
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/posts/61",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"posts",
+								"61"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"67-g4gbeEqmevlRGUFn5fIGk0bpcXw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:03:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"idpost\": 61,\n    \"content\": \"Essa semana foi a que eu mais gostei, apesar dos altos e baixos...\",\n    \"iduser\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Atualizar uma Postagem",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\":\"Acabei de atualizar minha postagem, fiquei empolgado com o meu time!!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/61",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"61"
+					]
+				},
+				"description": "É necessário um token para autorização!\n\nAtualiza a postagem informada pelo ID"
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Acabei de atualizar minha postagem, fiquei empolgado com o meu time!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/posts/61",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"posts",
+								"61"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "97"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"61-qbQbrlelRUi7IEUZoMLk13gGfQk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:04:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": \"Acabei de atualizar minha postagem, fiquei empolgado com o meu time!!\",\n    \"idpost\": \"61\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Deletar Uma Postagem",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/61",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"61"
+					]
+				},
+				"description": "É necessário um token para autorização!\n\nDeleta uma postagem."
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/posts/61",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"posts",
+								"61"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:04:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Listar Todas as Postagens de um Usuário específico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"1",
+						"users"
+					]
+				},
+				"description": "É necessário um token para autorização!\n\nLista todas as postagens do usuário informado pelo ID"
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOjEsImlhdCI6MTY2Njk1MTMyOSwiZXhwIjoxNjY3MTI0MTI5fQ.UaRKiqhfXCaHKWo6vtcKOkgowPIUYTVs_vIYL_m8lSY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/posts/1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"posts",
+								"1",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1191"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a7-t27ZBUcZgeNNwXnHYTRPUZu+oSY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:06:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idpost\": 9,\n        \"content\": \"laudantium sequi pariatur aut quas at dicta ullam iusto optio fuga hic placeat excepturi ratione tenetur illo tenetur asperiores illum reiciendis modi libero iste sequi doloremque eaque\",\n        \"iduser\": 1,\n        \"createdAt\": \"2022-10-28T09:45:44.000Z\",\n        \"updatedAt\": \"2022-10-28T09:45:44.000Z\"\n    },\n    {\n        \"idpost\": 34,\n        \"content\": \"minus necessitatibus nihil quae impedit minus aspernatur eligendi ex eaque natus quibusdam ullam voluptatem error quidem distinctio debitis praesentium a ea dignissimos molestias\",\n        \"iduser\": 1,\n        \"createdAt\": \"2022-10-28T09:45:44.000Z\",\n        \"updatedAt\": \"2022-10-28T09:45:44.000Z\"\n    },\n    {\n        \"idpost\": 47,\n        \"content\": \"quidem eligendi magni nostrum minima quaerat dolorum vitae ducimus corrupti recusandae porro adipisci accusamus reiciendis facilis consequuntur ab aliquid asperiores quia odit sequi tempora similique temporibus nulla cupiditate repellendus\",\n        \"iduser\": 1,\n        \"createdAt\": \"2022-10-28T09:45:44.000Z\",\n        \"updatedAt\": \"2022-10-28T09:45:44.000Z\"\n    },\n    {\n        \"idpost\": 54,\n        \"content\": \"omnis dignissimos necessitatibus voluptatum natus provident sunt neque consectetur deserunt molestias vitae mollitia corporis\",\n        \"iduser\": 1,\n        \"createdAt\": \"2022-10-28T09:45:44.000Z\",\n        \"updatedAt\": \"2022-10-28T09:45:44.000Z\"\n    }\n]"
+				}
+			]
+		}
+	]
+}

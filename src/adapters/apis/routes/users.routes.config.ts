@@ -23,9 +23,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             .all(Auth,
                 usersMiddleware.validateUserExist)
             .get(usersController.listID)
-            .put(
-                validationsMiddleware.users,
-                usersController.update)
+            .put(usersController.update)
             .delete(usersController.delete)
 
 
