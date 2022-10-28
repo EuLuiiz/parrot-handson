@@ -13,10 +13,10 @@ export const Auth = async (request: express.Request, response: express.Response,
             if (typeof decode == 'string') {
                 response.status(401).send('Não foi possível obter autenticação');
             } else {
+                request.body.info = decode;
                 (request as TokenRequest).token = decode;
                 next();
             }
-            next()
         }
     } catch (error) {
         console.log(error)
