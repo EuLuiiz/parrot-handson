@@ -7,18 +7,18 @@ test("Teste unitário UpdateClientUseCase", async ()=> {
     
     const post: IPostsEntity ={
 
-        "content":"Um post bem legal",
+        "content":"Um post ",
         iduser:1,
     }
 await CreatePostUsecase.execute(post);
 
     const post2: IPostsEntity = {
-        "content":"Um post bem legal",
+        "content":"Um post2",
         iduser:1,
     }
 
     const post3: IPostsEntity = {
-        "content":"Um post bem legal",
+        "content":"Um post3",
         iduser:1,
     }
 
